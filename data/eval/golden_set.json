@@ -1,0 +1,13 @@
+[
+  {"question": "What is our leave policy?", "expected_source": "HR_Policy.pdf", "must_include": ["24"]},
+  {"question": "How many sick leaves do I get?", "expected_source": "HR_Policy.pdf", "must_include": ["6"]},
+  {"question": "How many earned leaves can I carry forward?", "expected_source": "HR_Policy.pdf", "must_include": ["10"]},
+  {"question": "How long is maternity leave?", "expected_source": "HR_Policy.pdf", "must_include": ["26"]},
+  {"question": "How do I report a phishing email?", "expected_source": "IT_Security_Policy.md", "must_include": ["report phishing"]},
+  {"question": "What is the minimum password length?", "expected_source": "IT_Security_Policy.md", "must_include": ["14"]},
+  {"question": "How much is the yearly learning budget?", "expected_source": "Company_Handbook.md", "must_include": ["40,000"]},
+  {"question": "What is the hotel limit in metro cities?", "expected_source": "Company_Handbook.md", "must_include": ["6,000"]},
+  {"question": "How many days a week do I need to be in the office?", "expected_source": "Company_Handbook.md", "must_include": ["2"]},
+  {"question": "When do engineers join the on-call rotation?", "expected_source": "Engineering Onboarding", "must_include": ["3 months"]},
+  {"question": "What is the company's stock ticker symbol?", "expected_source": null, "must_include": []}
+]

@@ -1,0 +1,15 @@
+langchain-core>=0.3
+langchain-community>=0.3
+langchain-text-splitters>=0.3
+langchain-groq>=0.2
+langchain-openai>=0.2
+fastembed>=0.4
+faiss-cpu>=1.8
+pypdf>=4.0
+docx2txt>=0.8
+python-dotenv>=1.0
+streamlit>=1.36
+pytest>=8.0
+# Optional: Confluence ingestion
+# atlassian-python-api>=3.41
+# beautifulsoup4>=4.12
