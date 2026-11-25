@@ -55,7 +55,7 @@ Bot:  The hotel allowance for Mumbai (a metro city) is ₹6,000 per night [1].  
 ## 🏗 Architecture
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph ING["Ingestion - python ingest.py"]
         A["PDF, DOCX, MD, TXT"] --> L["Loaders with source and page metadata"]
         N["Notion export"] --> L
