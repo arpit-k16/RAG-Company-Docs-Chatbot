@@ -4,6 +4,9 @@
 
 **A private AI assistant that answers employee questions from internal company documents, with every answer cited to its source.**
 
+### [🚀 Try the live demo →](https://rag-company-docs-chatbot.streamlit.app)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit%20Cloud-FF4B4B?logo=streamlit&logoColor=white)](https://rag-company-docs-chatbot.streamlit.app)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![LangChain](https://img.shields.io/badge/LangChain-RAG-1C3C3C?logo=langchain&logoColor=white)](https://www.langchain.com/)
 [![FAISS](https://img.shields.io/badge/FAISS-Vector%20Search-0467DF)](https://github.com/facebookresearch/faiss)
@@ -189,10 +192,12 @@ All settings are read from `.env` locally or from **Secrets** on Streamlit Cloud
 
 ## ☁️ Deployment
 
-Deploy for free on **Streamlit Community Cloud**:
+**Live:** [rag-company-docs-chatbot.streamlit.app](https://rag-company-docs-chatbot.streamlit.app), running on Streamlit Community Cloud's free tier.
+
+To deploy your own copy:
 
 1. Fork or push this repo to your GitHub account.
-2. Go to [share.streamlit.io](https://share.streamlit.io), click **Create app**, select the repo and `app.py`, and choose Python 3.11 under *Advanced settings*.
+2. Go to [share.streamlit.io](https://share.streamlit.io), click **Create app**, select the repo and `app.py`, and choose Python 3.12 under *Advanced settings* (newer versions may lack wheels for FAISS / ONNX Runtime).
 3. Add your key under **Secrets**:
    ```toml
    GROQ_API_KEY = "gsk_..."
