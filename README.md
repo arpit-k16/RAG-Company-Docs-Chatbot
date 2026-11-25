@@ -6,6 +6,8 @@
 
 ### [🚀 Try the live demo →](https://rag-company-docs-chatbot.streamlit.app)
 
+**[▶️ Watch the 45-second showcase](docs/showcase.mp4)** · **[📄 Read the full project report](docs/PROJECT_REPORT.md)** ([PDF](docs/PROJECT_REPORT.pdf))
+
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit%20Cloud-FF4B4B?logo=streamlit&logoColor=white)](https://rag-company-docs-chatbot.streamlit.app)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![LangChain](https://img.shields.io/badge/LangChain-RAG-1C3C3C?logo=langchain&logoColor=white)](https://www.langchain.com/)
@@ -225,7 +227,10 @@ RAG-Company-Docs-Chatbot/
 │   ├── notion/             # Sample Notion export
 │   └── eval/               # Golden Q&A set
 ├── tests/test_rag.py       # Offline unit tests
-├── docs/demo.jpg           # Screenshot used in this README
+├── docs/
+│   ├── PROJECT_REPORT.md   # Full project report (also as PDF)
+│   ├── showcase.mp4        # 45-second showcase video
+│   └── images/             # Slides and screenshots
 └── .streamlit/             # Theme + secrets template
 ```
 
