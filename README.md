@@ -56,24 +56,24 @@ Bot:  The hotel allowance for Mumbai (a metro city) is ₹6,000 per night [1].  
 
 ```mermaid
 flowchart LR
-    subgraph Ingestion["Ingestion · python ingest.py"]
-        A["PDF / DOCX / MD / TXT"] --> L["Loaders<br/>+ source & page metadata"]
+    subgraph ING["Ingestion - python ingest.py"]
+        A["PDF, DOCX, MD, TXT"] --> L["Loaders with source and page metadata"]
         N["Notion export"] --> L
-        C["Confluence (optional)"] --> L
-        L --> S["Recursive splitter<br/>800 chars · 120 overlap"]
-        S --> E1["FastEmbed<br/>bge-small-en-v1.5 (local)"]
-        E1 --> V[("FAISS index<br/>+ manifest")]
+        C["Confluence - optional"] --> L
+        L --> S["Recursive splitter: 800 chars, 120 overlap"]
+        S --> E1["FastEmbed bge-small-en-v1.5, local CPU"]
+        E1 --> V[("FAISS index and manifest")]
     end
 
-    subgraph Query["Query · app.py / cli.py"]
-        Q["User question"] --> R["Condense follow-up<br/>into standalone query"]
+    subgraph QRY["Query - app.py or cli.py"]
+        Q["User question"] --> R["Condense follow-up into standalone query"]
         R --> E2["Embed query"]
         E2 --> V
-        V --> K["Top-k passages<br/>relevance ≥ threshold"]
-        K -->|none pass| X["Refuse: not in documents"]
-        K -->|passages| P["Grounded prompt<br/>numbered context"]
-        P --> G["Groq LLM<br/>gpt-oss-120b"]
-        G --> O["Streamed answer<br/>+ cited sources"]
+        V --> K["Top-k passages above relevance threshold"]
+        K -- "none pass" --> X["Refuse: not in documents"]
+        K -- "passages found" --> P["Grounded prompt with numbered context"]
+        P --> G["Groq LLM gpt-oss-120b"]
+        G --> O["Streamed answer with cited sources"]
     end
 ```
 
