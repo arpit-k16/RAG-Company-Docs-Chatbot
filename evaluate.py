@@ -8,12 +8,20 @@ from __future__ import annotations
 import argparse
 import json
 import time
+import unicodedata
 from pathlib import Path
 
 from config import settings
 from rag import RAGChatbot
 
 GOLDEN = Path(__file__).parent / "data" / "eval" / "golden_set.json"
+
+
+def normalize(text: str) -> str:
+    """Make keyword matching robust to how models format text: NFKC turns narrow/no-break
+    spaces into normal spaces, curly apostrophes become straight, bold markers are dropped."""
+    text = unicodedata.normalize("NFKC", text).replace("\u2019", "'").replace("**", "")
+    return " ".join(text.lower().split())
 
 
 def main() -> None:
@@ -35,11 +43,11 @@ def main() -> None:
 
         if not args.retrieval_only:
             ans = bot.ask(q)
-            text = ans.text.lower()
+            text = normalize(ans.text)
             if expected is None:  # out-of-scope question: the bot should say it doesn't know
                 ok = any(k in text for k in ("couldn't find", "could not find", "don't know", "not mentioned"))
             else:
-                ok = all(k.lower() in text for k in c["must_include"])
+                ok = all(normalize(k) in text for k in c["must_include"])
             correct += ok
             line += f"\n   {'✅' if ok else '❌'} answer: {ans.text[:140]!r}"
         print(line)

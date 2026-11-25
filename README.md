@@ -173,6 +173,18 @@ All settings are read from `.env` locally or from **Secrets** on Streamlit Cloud
   - **Retrieval hit-rate:** did the expected document appear in the top-k results?
   - **Answer accuracy:** does the answer contain the expected facts?
   - **Refusal check:** for an out-of-scope question, does the bot correctly say it can't find the answer?
+**Results** (`python evaluate.py`, gpt-oss-120b on Groq with bge-small-en-v1.5 embeddings, 11 questions):
+
+| Metric | Score |
+|---|---|
+| Retrieval hit-rate (expected document in top-k) | **100%** (11/11) |
+| Answer accuracy (expected facts present) | **100%** (11/11) |
+| Out-of-scope refusal ("What is the company's stock ticker?") | ✅ Refused correctly |
+| End-to-end time for the full set | ~18 s (≈1.6 s per question) |
+
+> An early run scored 10/11 because the model wrote "3 months" with a Unicode narrow no-break space.
+> The grader now normalises Unicode and Markdown before matching, so formatting differences don't count as wrong answers.
+
 - **`tests/test_rag.py`** covers loaders and metadata, chunking, index build/save/load, embedding-model mismatch detection, the no-context refusal path and follow-up condensing. It uses fake embeddings and a fake LLM, so it runs offline in seconds.
 
 ## ☁️ Deployment
